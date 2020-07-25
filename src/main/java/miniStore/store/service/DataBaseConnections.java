@@ -7,20 +7,13 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 
 public class DataBaseConnections {
-	protected Connection con;
+	protected static Connection con = null;
 	protected ResultSet result;
 	protected PreparedStatement statment;
 	public  static final String URL="src/main/resources/database/database.db";
 	
 	public DataBaseConnections() {
-		try {
-			
-			con = DriverManager.getConnection("jdbc:sqlite:"+URL);
-		} catch (SQLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		
-		} 
+		 
 	}
 	
 	public PreparedStatement getStatment() {
@@ -34,6 +27,19 @@ public class DataBaseConnections {
 	}
 	public ResultSet getResult() {
 		return result;
+	}
+
+	public void Connect() {
+		try {
+			
+				
+			 con = DriverManager.getConnection("jdbc:sqlite:"+URL);
+			
+			} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		
+		}
 	}
 
 }

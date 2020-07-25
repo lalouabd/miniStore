@@ -18,6 +18,7 @@ public class PersonDataAcces implements PersonDao {
 	
 		dbCon = new JdbcQuerys<>();
 		imagedao = new imagesDataAcces();
+
 	}
 	
  	@Override
@@ -36,7 +37,7 @@ public class PersonDataAcces implements PersonDao {
 				person.getName(),
 				person.getEmail(),
 				person.getPassword(),
-				person.getDateOfBirth(),
+				person.getDateOfBirth().toString(),
 				person.getBalance(),
 				person.getId());
 	}
@@ -61,7 +62,7 @@ public class PersonDataAcces implements PersonDao {
 								imagedao.getImageByOwnerId(per.getId())
 								.orElse(
 										new ImageT(
-												new File("/images/defimage.png"),
+												new File("src/main/resources/images/defimage.png"),
 												per.getId())));
 						return per;
 				}
@@ -108,7 +109,7 @@ public class PersonDataAcces implements PersonDao {
 		
 		return dbCon.update(sql, 
 				person.getName()
-				,person.getDateOfBirth()
+				,person.getDateOfBirth().toString()
 				,person.getBalance()
 				,person.getEmail());
 	}

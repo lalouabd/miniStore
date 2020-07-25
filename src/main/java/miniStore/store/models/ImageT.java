@@ -17,16 +17,18 @@ public class ImageT {
 	public ImageT(File img,UUID ownerId )
 	{
 		setId(UUID.randomUUID());
-		setOwnerID(ownerID);
+		setOwnerID(ownerId);
+	
 		setPath(img.getAbsolutePath());
 		setName(img.getName());
 		setFile(img);
+		copyToLocal();
 		
 	}
 	public ImageT(UUID id,String path,String name,UUID ownerId )
 	{
 		setId(id);
-		setOwnerID(ownerID);
+		setOwnerID(ownerId);
 		setPath(path);
 		setName(name);
 		setFile(new File(path));
@@ -34,10 +36,10 @@ public class ImageT {
 	}
 	public void copyToLocal()
 	{
-		 Path sourcePath = file.toPath();
+		 Path sourcePath = this.file.toPath();
 	        
 	        
-	        Path targetPath = Paths.get("/images/"+getName());
+	        Path targetPath = Paths.get("src/main/resources/images/"+getName());
 	        try {
 	        Files.copy(sourcePath, targetPath,StandardCopyOption.REPLACE_EXISTING);
 	        file = new File(targetPath.toString());
@@ -54,6 +56,11 @@ public class ImageT {
 		{
 			file.delete();
 		}
+	}
+	@Override
+	public String toString() {
+		return "ImageT [id=" + id + ", ownerID=" + ownerID + ", Path=" + Path + ", name=" + name + ", file=" + file
+				+ "]";
 	}
 	public File getFile() {
 		return file;

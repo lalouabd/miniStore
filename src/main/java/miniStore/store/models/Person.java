@@ -19,10 +19,14 @@ public class Person {
 	
 	
 	
-	
+	public Person(String name, String email , double bal , String password,Date dob)
+	{
+		this(UUID.randomUUID(), name,email,bal,password, dob , null);
+	}
 	
 	public Person(UUID id,String name, String email,double bal, String password ,Date dob, ImageT image)
-	{
+	{ 
+		
 		this(id ,name, email, password, bal,dob, image);
 	}
 	
@@ -38,7 +42,7 @@ public class Person {
 		setEmail(email);
 		setPassword(password);
 		setDateOfBirth(dob);
-		
+		System.out.println(id);
 		setImage(image);
 	}
 	
@@ -52,7 +56,7 @@ public class Person {
 		this.balance = balance;
 	}
 	public UUID getId() {
-		return id;
+		return this.id;
 	}
 
 	public void setId(UUID id) {

@@ -109,9 +109,26 @@ public class ProductDataAcces implements ProductDao{
 	}
 
 	@Override
-	public List<Product> getProducts() {
+	public List<Product> getProducts(String name) throws SQLException {
+		String sql="select * from produckts where name like ?";
+		
 		// TODO Auto-generated method stub
-		return null;
+		return dbCon.queryForList(sql, result->{
+			Product pro = null;
+			try {
+				pro = new Product(
+						result.getString("name"),
+						Double.parseDouble(result.getString("price")),
+						result.getString("details"),
+						result.getString("ownerEmail"),
+						result.getInt("quantity")
+						);
+			}catch(Exception e)
+			{
+				e.printStackTrace();
+			}
+			return pro;
+		}, name+"%");
 	}
 
 }

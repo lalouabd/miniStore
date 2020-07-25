@@ -49,10 +49,11 @@ public class ProductService {
 		
 		return list;
 	}
-	public List<Product> getProducts() throws SQLException
+	
+	public List<Product> getProducts(String name) throws SQLException
 	{
 		List<Product> list;
-		list = productDao.getProducts();
+		list = productDao.getProducts(name);
 		
 		list.forEach(pro ->{
 			try {

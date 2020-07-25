@@ -55,6 +55,7 @@ public class imagesDataAcces implements ImagesDao {
 		return dbcon.queryForObject(sql, result->{
 			ImageT im = null;
 			try {
+				
 				im = new ImageT(
 						UUID.fromString(result.getString("id")),
 						result.getString("path"),
@@ -75,6 +76,7 @@ public class imagesDataAcces implements ImagesDao {
 	public boolean insertImage(ImageT image) throws SQLException{
 		String sql = "insert into images(id,path,name,ownerid) values(?,?,?,?)";
 		
+		System.out.println(image);
 		return dbcon.update(sql,
 				image.getId(),
 				image.getPath(),
@@ -92,9 +94,27 @@ public class imagesDataAcces implements ImagesDao {
 
 
 	@Override
-	public Optional<ImageT> getImageByOwnerId(UUID ownerId) {
+	public Optional<ImageT> getImageByOwnerId(UUID ownerId) throws SQLException {
+		String sql = "select * from  images where ownerid=?";
+		return dbcon.queryForObject(sql, result->{
+			ImageT im = null;
+			try {
+				
+				im = new ImageT(
+						UUID.fromString(result.getString("id")),
+						result.getString("path"),
+						result.getString("name"),
+						UUID.fromString(result.getString("ownerid")));
+			}catch (Exception e)
+			{
+				
+				e.printStackTrace();
+				
+			}
+			return im;
+			
+		}, ownerId);
 		
-		return null;
 	}
 
 }

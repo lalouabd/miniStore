@@ -19,6 +19,6 @@ public interface ProductDao {
 	boolean updateProduct(Product product)throws SQLException;
 	boolean insertProduct(Product product) throws SQLException;
 
-	List<Product> getProducts();
+	List<Product> getProducts(String name) throws SQLException;
 	
 }
