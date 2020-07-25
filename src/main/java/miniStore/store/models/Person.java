@@ -8,10 +8,10 @@ import java.util.UUID;
 
 public class Person {
 	
-	private List<UUID> products;
+//	private List<UUID> products;
 	private String name , email, password;
 	private Date dateOfBirth;
-	private Image image;
+	private ImageT image;
 	private double balance;
 	private UUID id;
 	
@@ -19,44 +19,30 @@ public class Person {
 	
 	
 	
-	public Person(String name ,String email,String password, Date dob)
-	{
 	
-		this(UUID.randomUUID(),name ,email, password, dob,new Image());
+	
+	public Person(UUID id,String name, String email,double bal, String password ,Date dob, ImageT image)
+	{
+		this(id ,name, email, password, bal,dob, image);
 	}
 	
-	public Person(UUID id,String name, String email, String password ,Date dob, Image image)
+	public Person(UUID id,String name, String email ,Date dob ,double bal)
 	{
-		this(id ,name, email, password, dob, new ArrayList<UUID>(), image);
+		this(id ,name, email, "",bal, dob, null);
 	}
-	
-	public Person(UUID id,String name, String email ,Date dob )
+	public Person( UUID id,String name, String email, String password ,double bal, Date dob,ImageT image)
 	{
-		this(id ,name, email, "", dob, new ArrayList<UUID>(), null);
-	}
-	public Person( UUID id,String name, String email, String password , Date dob, List<UUID> products,Image image)
-	{
+		setBalance(bal);
 		setId(id);
 		setName(name);
 		setEmail(email);
 		setPassword(password);
 		setDateOfBirth(dob);
-		setProducts(products);
+		
 		setImage(image);
 	}
 	
-	public boolean addProduct(UUID id)
-	{
-		if (id != null)
-		{
-			if(!products.contains(id))
-			{
-				products.add(id);
-				return true;
-			}
-		}
-		return false;
-	}
+	
 	
 	public double getBalance() {
 		return balance;
@@ -74,21 +60,9 @@ public class Person {
 	}
 
 	
-	public boolean delProduct(UUID id)
-	{
-		if (id != null)
-		{
-			return products.remove(id);
-		}
-		return false;
-	}
+
 	
-	public List<UUID> getProducts() {
-		return products;
-	}
-	public void setProducts(List<UUID> products) {
-		this.products = products;
-	}
+
 	public String getName() {
 		return name;
 	}
@@ -113,10 +87,10 @@ public class Person {
 	public void setDateOfBirth(Date dateOfBirth) {
 		this.dateOfBirth = dateOfBirth;
 	}
-	public Image getImage() {
+	public ImageT getImage() {
 		return image;
 	}
-	public void setImage(Image image) {
+	public void setImage(ImageT image) {
 		this.image = image;
 	}
 	

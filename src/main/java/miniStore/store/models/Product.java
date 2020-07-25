@@ -10,7 +10,7 @@ public  class Product {
 	private UUID id;
 	private  String name;
 	private double price;
-	private List<File> images;
+	private List<ImageT> images;
 	private  String details;
 	private String ownerEmail;
 	private int quantity;
@@ -22,7 +22,7 @@ public  class Product {
 
 
 	public Product(String name, double price, String details,String ownerEmail,int quantity ) {
-			this.id  =UUID.randomUUID();
+			this.id  = UUID.randomUUID();
 			this.name = name;
 			this.price = price;
 			this.ownerEmail = ownerEmail;
@@ -37,25 +37,18 @@ public  class Product {
 			{
 				if (image.exists())
 				{
-					Optional<File > op = images.stream()
-					.filter(img->img.getName().equals(image.getName())).findFirst();
-					if (!op.isPresent())
-						images.add(image);
-					else 
-						return false;
+						images.add(new ImageT(image,this.id));
 					return true;
 				}
 			}
 			return false;
 	}
-	public boolean removeImage(File image) {
+	public boolean removeImage(ImageT image) {
 		if (image != null)
 		{
-			if (image.exists())
-			{
+			
 				images.remove(image);
 				return true;
-			}
 		}
 		return false;
 	}
@@ -91,7 +84,7 @@ public  class Product {
 	}
 
 
-	public void setImages(List<File> images) {
+	public void setImages(List<ImageT> images) {
 		this.images = images;
 	}
 	public String getDetails() {
@@ -104,7 +97,7 @@ public  class Product {
 	}
 
 	
-	public List<File> getImages() {
+	public List<ImageT> getImages() {
 		return images;
 	}
 

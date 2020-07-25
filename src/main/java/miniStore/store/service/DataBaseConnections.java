@@ -10,7 +10,7 @@ public class DataBaseConnections {
 	protected Connection con;
 	protected ResultSet result;
 	protected PreparedStatement statment;
-	public  static final String URL="/database/database.db";
+	public  static final String URL="src/main/resources/database/database.db";
 	
 	public DataBaseConnections() {
 		try {

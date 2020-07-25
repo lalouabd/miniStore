@@ -1,16 +1,17 @@
 package miniStore.store.dao;
 
+import java.sql.SQLException;
 import java.util.Optional;
 
 import miniStore.store.models.Person;
 
 public interface PersonDao {
 	
-	boolean register(Person person);
+	boolean register(Person person)throws SQLException;
 	
-	Optional<Person> login(String email , String password);
+	Optional<Person> login(String email , String password)throws SQLException;
 	
-	boolean checkPersonByEmail(String email);
+	boolean checkPersonByEmail(String email)throws SQLException;
 	
-	boolean UpdatePerson(Person Person);
+	boolean UpdatePerson(Person Person)throws SQLException;
 }

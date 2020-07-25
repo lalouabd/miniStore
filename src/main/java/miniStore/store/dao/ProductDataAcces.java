@@ -46,7 +46,7 @@ public class ProductDataAcces implements ProductDao{
 			try {
 				pro = new Product(
 						result.getString("name"),
-						result.getDouble("price"),
+						Double.parseDouble(result.getString("price")),
 						result.getString("details"),
 						result.getString("ownerEmail"),
 						result.getInt("quantity")
@@ -106,6 +106,12 @@ public class ProductDataAcces implements ProductDao{
 				product.getQuantity(),
 				product.getId()
 				);
+	}
+
+	@Override
+	public List<Product> getProducts() {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 }

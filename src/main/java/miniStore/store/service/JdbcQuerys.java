@@ -35,16 +35,18 @@ public class JdbcQuerys<T>  extends DataBaseConnections{
 	
 	public Optional<T> queryForObject(String sql , Function<ResultSet , T> func , Object ...args)
 	throws SQLException{
-	Optional <T> optional;
+	Optional <T> optional = Optional.empty();
 		statment =  con.prepareStatement(sql);
 		for(int i= 0; i< args.length;i++)
 			statment.setObject(i+1, args[i]);
 		
 		result = statment.executeQuery();
-	
-	optional = Optional.of(func.apply(result));
+		T j = func.apply(result);
+		if(j != null)
+			optional = Optional.of(j);
 		 return optional;
 	}
+	
 	public boolean update(String sql , Object ...args)
 	throws SQLException{
 		statment =  con.prepareStatement(sql);

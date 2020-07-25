@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.shape.Circle?>
+
+
+<HBox alignment="CENTER" prefHeight="444.0" prefWidth="684.0" spacing="20.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/11.0.1">
+   <children>
+      <VBox alignment="CENTER" prefHeight="434.0" prefWidth="323.0" spacing="20.0">
+         <children>
+            <TextField fx:id="name" promptText="Full name" />
+            <TextField fx:id="email" promptText="email" />
+            <PasswordField fx:id="password" promptText="password" />
+            <PasswordField fx:id="passconfirm" promptText="password confirmation" />
+         </children>
+         <HBox.margin>
+            <Insets />
+         </HBox.margin>
+         <padding>
+            <Insets left="20.0" right="20.0" />
+         </padding>
+      </VBox>
+      <VBox alignment="TOP_CENTER" prefHeight="444.0" prefWidth="317.0" spacing="51.0">
+         <children>
+            <Circle fx:id="profileImage" fill="DODGERBLUE" radius="98.0" stroke="BLACK" strokeType="INSIDE" />
+            <DatePicker fx:id="dob" promptText="BirhDay" />
+            <HBox alignment="CENTER" prefHeight="45.0" prefWidth="317.0" spacing="100.0">
+               <children>
+                  <Button fx:id="cancel" mnemonicParsing="false" text="cancel" />
+                  <Button fx:id="signup" mnemonicParsing="false" text="sign Up" />
+               </children>
+            </HBox>
+         </children>
+         <padding>
+            <Insets top="20.0" />
+         </padding>
+      </VBox>
+   </children>
+</HBox>

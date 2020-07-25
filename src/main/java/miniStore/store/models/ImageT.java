@@ -1,16 +1,20 @@
 package miniStore.store.models;
 
 import java.io.File;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+import java.nio.file.StandardCopyOption;
 import java.util.UUID;
 
-public class Image {
+public class ImageT {
 	private UUID id;
 	private UUID ownerID;
 	private String Path;
 	private String name;
 	private File file;
 	
-	private Image(File img,UUID ownerId )
+	public ImageT(File img,UUID ownerId )
 	{
 		setId(UUID.randomUUID());
 		setOwnerID(ownerID);
@@ -19,10 +23,30 @@ public class Image {
 		setFile(img);
 		
 	}
-	public void copyToLocal()
+	public ImageT(UUID id,String path,String name,UUID ownerId )
 	{
+		setId(id);
+		setOwnerID(ownerID);
+		setPath(path);
+		setName(name);
+		setFile(new File(path));
 		
 	}
+	public void copyToLocal()
+	{
+		 Path sourcePath = file.toPath();
+	        
+	        
+	        Path targetPath = Paths.get("/images/"+getName());
+	        try {
+	        Files.copy(sourcePath, targetPath,StandardCopyOption.REPLACE_EXISTING);
+	        file = new File(targetPath.toString());
+	        Path = targetPath.toString();
+	        }catch(Exception e)
+	        {
+	        	e.printStackTrace();
+	        }
+	 }
 	
 	public void delImage()
 	{

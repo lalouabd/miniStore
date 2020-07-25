@@ -1,15 +1,17 @@
 package miniStore.store.dao;
 
+import java.sql.SQLException;
 import java.util.List;
 import java.util.Optional;
 import java.util.UUID;
 
-import miniStore.store.models.Image;
+import miniStore.store.models.ImageT;
 
-public interface ImagesDao<T> {
+public interface ImagesDao {
 	
-	List<Image> getImages(T o);
-	Optional<Image> getImageById(UUID id);
-	boolean insertImage(Image image);
-	boolean deleteImage(String name);
+	List<ImageT> getImages(UUID ownerId) throws SQLException;
+	Optional<ImageT> getImageById(UUID id) throws SQLException;
+	Optional<ImageT> getImageByOwnerId(UUID ownerId);
+	boolean insertImage(ImageT image) throws SQLException;
+	boolean deleteImage(String name) throws SQLException;
 }
