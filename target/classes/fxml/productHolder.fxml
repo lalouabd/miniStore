@@ -4,10 +4,9 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Text?>
 
-
-<Pane fx:id="root" prefHeight="110.0" prefWidth="90.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
+<Pane fx:id="root" prefHeight="140.0" prefWidth="140.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="miniStore.store.ProductHolderController">
    <children>
-      <VBox alignment="CENTER" layoutX="-1.0" layoutY="67.0" prefHeight="43.0" prefWidth="90.0" spacing="5.0">
+      <VBox alignment="CENTER" layoutX="9.0" layoutY="46.0" prefHeight="61.0" prefWidth="119.0" spacing="5.0">
          <children>
             <Text fx:id="name" strokeType="OUTSIDE" strokeWidth="0.0" />
             <Text fx:id="price" strokeType="OUTSIDE" strokeWidth="0.0" />

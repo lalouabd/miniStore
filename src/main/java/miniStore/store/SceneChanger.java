@@ -8,6 +8,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
 import javafx.stage.Stage;
 import miniStore.store.models.Person;
 import miniStore.store.models.Product;
@@ -81,5 +82,14 @@ public class SceneChanger {
         
         stage.show();
     }
+	
+	public static void showPopUP(String str, String title)
+	{
 
+		 Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+	        alert.setTitle(title);
+	        alert.setHeaderText(str);
+	        alert.showAndWait();
+	  
+	}
 }

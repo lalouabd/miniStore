@@ -5,7 +5,7 @@ import java.util.List;
 import miniStore.store.models.Person;
 import miniStore.store.models.Product;
 
-public class ProductsHolderContrller implements ControllerClass {
+public class BuyController implements ControllerClass {
 
 	@Override
 	public void preloadData(Person person) {

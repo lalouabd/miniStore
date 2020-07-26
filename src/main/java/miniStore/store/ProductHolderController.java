@@ -1,22 +1,46 @@
 package miniStore.store;
 
-import java.util.List;
-
+import javafx.fxml.FXML;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
+import javafx.scene.layout.Background;
+import javafx.scene.layout.BackgroundImage;
+import javafx.scene.layout.BackgroundPosition;
+import javafx.scene.layout.BackgroundRepeat;
+import javafx.scene.layout.BackgroundSize;
+import javafx.scene.layout.Pane;
+import javafx.scene.text.Text;
 import miniStore.store.models.Person;
 import miniStore.store.models.Product;
 
-public class ProductHolderController implements ControllerClass {
+public class ProductHolderController  {
 
-	@Override
-	public void preloadData(Person person) {
-		// TODO Auto-generated method stub
+    @FXML
+    private ImageView image;
 
-	}
+	@FXML
+    private Pane root;
 
-	@Override
-	public void preloadData(Person person, List<Product> products) {
-		// TODO Auto-generated method stub
+    @FXML
+    private Text name;
 
+    @FXML
+    private Text price;
+    
+	public void preloadData(Person person, Product product, boolean mine) {
+		image.setImage(new Image(product.getImages().get(0).getPath()));
+		
+		name.setText(product.getName());
+		price.setText(product.getPrice() + " $");
+		root.setOnMouseClicked(event->{
+			if (mine)
+			{
+				
+			}else {
+				
+			}
+			
+		});
 	}
 
 }

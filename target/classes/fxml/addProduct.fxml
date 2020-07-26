@@ -1,8 +1,71 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Text?>
 
 
-<HBox fx:id="root" alignment="CENTER" prefHeight="100.0" prefWidth="300.0" spacing="5.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/11.0.1">
-	<!-- TODO Add Nodes -->
-</HBox>
+<ScrollPane prefHeight="519.0" prefWidth="757.0" xmlns="http://javafx.com/javafx/11.0.1" 
+xmlns:fx="http://javafx.com/fxml/1" fx:controller="miniStore.store.addProductsController">
+   <content>
+      <VBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="724.0" prefWidth="741.0" spacing="10.0">
+         <children>
+            <HBox alignment="CENTER" prefHeight="31.0" prefWidth="741.0" spacing="10.0">
+               <children>
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Title :" />
+                  <TextField fx:id="title" prefHeight="4.0" prefWidth="539.0" />
+                  <Button fx:id="Cancel" mnemonicParsing="false" text="Cancel" />
+                  <Button fx:id="save" mnemonicParsing="false" text="save" />
+               </children>
+            </HBox>
+            <HBox alignment="CENTER_LEFT" prefHeight="42.0" prefWidth="741.0" spacing="10.0">
+               <children>
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Quantity :" />
+                  <TextField fx:id="quantity" prefHeight="26.0" prefWidth="217.0" />
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Price" />
+                  <TextField fx:id="price" prefHeight="26.0" prefWidth="235.0" />
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="\$" />
+               </children>
+               <padding>
+                  <Insets left="10.0" />
+               </padding>
+            </HBox>
+            <VBox prefHeight="229.0" prefWidth="741.0" spacing="10.0">
+               <children>
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Discription" />
+                  <TextArea fx:id="disc" prefHeight="214.0" prefWidth="661.0" text=".....&#10;">
+                     <VBox.margin>
+                        <Insets left="20.0" />
+                     </VBox.margin>
+                  </TextArea>
+               </children>
+               <padding>
+                  <Insets left="10.0" right="50.0" />
+               </padding>
+            </VBox>
+            <HBox alignment="CENTER" spacing="300.0">
+               <children>
+                  <Button fx:id="addImage" mnemonicParsing="false" prefHeight="26.0" prefWidth="120.0" text="add Image" />
+                  <Button fx:id="delImage" mnemonicParsing="false" text="delete Image" />
+               </children>
+            </HBox>
+            <HBox alignment="CENTER" prefHeight="309.0" prefWidth="741.0" spacing="10.0">
+               <children>
+                  <Button fx:id="pre" mnemonicParsing="false" text="&lt;--" />
+                  <ImageView fx:id="slider" fitHeight="370.0" fitWidth="576.0" pickOnBounds="true" preserveRatio="true" />
+                  <Button fx:id="next" mnemonicParsing="false" text="--&gt;" />
+               </children>
+               <padding>
+                  <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+               </padding>
+            </HBox>
+         </children>
+      </VBox>
+   </content>
+</ScrollPane>

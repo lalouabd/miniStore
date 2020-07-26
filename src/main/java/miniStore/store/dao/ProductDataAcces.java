@@ -23,7 +23,7 @@ public class ProductDataAcces implements ProductDao{
 		return dbCon.queryForList(sql, Result->{
 			Product pro = null;
 			try {
-				pro = new Product(
+				pro = new Product(UUID.fromString(Result.getString("id")),
 						Result.getString("name"),
 						Result.getDouble("price"),
 						Result.getString("details"),

@@ -32,6 +32,17 @@ public  class Product {
 	}
 
 	
+	public Product(UUID id,String name, double price, String details,String ownerEmail,int quantity) {
+		this.id  =	id;
+		this.name = name;
+		this.price = price;
+		this.ownerEmail = ownerEmail;
+		this.details = details;
+		setQuantity(quantity);
+		images = new ArrayList<>();
+	}
+
+
 	public boolean addImage(File image) {
 			if (image != null)
 			{
