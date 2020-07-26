@@ -82,6 +82,33 @@ public class SceneChanger {
         
         stage.show();
     }
+	public void changeScenes(Event event,
+			String viewName,
+			String title,
+			Person person,
+			Product products,
+			ControllerClass controllerClass, boolean mine) throws IOException
+    {
+        FXMLLoader loader = new FXMLLoader();
+        loader.setLocation(getClass().getResource(viewName));
+        Parent parent = loader.load();
+        
+        Scene scene = new Scene(parent);
+        scene.getStylesheets().add(MainApp.class.getResource("/styles/Styles.css").toExternalForm());
+        //access the controller class and preloaded the volunteer data
+        controllerClass = loader.getController();
+        controllerClass.preloadData(person, products , mine);
+        
+      //  scene.getStylesheets().add("./src/application/application.css");
+        //get the stage from the event that was passed in
+        Stage stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+        
+        stage.setTitle(title);
+        stage.setResizable(false);
+        stage.setScene(scene);
+        
+        stage.show();
+    }
 	
 	public static void showPopUP(String str, String title)
 	{

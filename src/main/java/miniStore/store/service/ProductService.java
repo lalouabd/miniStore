@@ -69,6 +69,8 @@ public class ProductService {
 	
 	public boolean updateProduct(Product product) throws SQLException
 	{
+		if (product.getQuantity() <= 0)
+			return deleteProduct(product);
 		return productDao.updateProduct(product);
 	}
 	

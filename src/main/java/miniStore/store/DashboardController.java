@@ -105,6 +105,7 @@ public class DashboardController implements ControllerClass {
 				}
 			});
 			myproducts.setOnAction(event->{
+				infbox.getChildren().removeIf(e ->e.isVisible());
 				List<List<Product>> pro = new ArrayList<>();
 				List<Product> products;
 				try {
@@ -159,10 +160,26 @@ public class DashboardController implements ControllerClass {
 						e.printStackTrace();
 					}
 			});
+			logout.setOnAction(event->{
+				try {
+				ControllerClass cn = new DashboardController();
+    			SceneChanger sn = new SceneChanger();
+					sn.changeScenes(event, "/fxml/login.fxml", "login");
+				} catch (IOException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+			});
 	}
 
 	@Override
 	public void preloadData(Person person, List<Product> products) {
+		
+	}
+
+	@Override
+	public void preloadData(Person person, Product product, boolean mine) {
+		// TODO Auto-generated method stub
 		
 	}
 

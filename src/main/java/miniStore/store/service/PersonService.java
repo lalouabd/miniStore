@@ -30,6 +30,9 @@ public class PersonService {
 		
 		return personDao.login(email, password).orElse(null);
 	}
+	public Person getPersonbyEmail(String email) throws SQLException{
+		return personDao.getPersonByEmail(email).orElse(null);
+	}
 	
 	public boolean register(Person person)throws SQLException
 	{

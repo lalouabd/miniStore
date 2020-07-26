@@ -11,7 +11,7 @@ public interface PersonDao {
 	
 	Optional<Person> login(String email , String password)throws SQLException;
 	
-	boolean checkPersonByEmail(String email)throws SQLException;
+	Optional<Person> getPersonByEmail(String email)throws SQLException;
 	
 	boolean UpdatePerson(Person Person)throws SQLException;
 }

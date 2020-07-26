@@ -76,7 +76,7 @@ public class PersonDataAcces implements PersonDao {
 	}
 
 	@Override
-	public boolean checkPersonByEmail(String email) throws SQLException{
+	public Optional<Person > getPersonByEmail(String email) throws SQLException{
 		String sql = "select * from person where email=?";
 		Optional<Person > op = dbCon.queryForObject(sql,
 				result->{
@@ -88,7 +88,7 @@ public class PersonDataAcces implements PersonDao {
 								UUID.fromString(result.getString("id")),
 								result.getString("name"),
 								result.getString("email"),
-								result.getDate("dob"),
+								java.sql.Date.valueOf(result.getString("dob")),
 								Double.parseDouble(result.getString("balance"))
 								);
 				return per;
@@ -98,7 +98,7 @@ public class PersonDataAcces implements PersonDao {
 			}
 			return null;
 		}, email);
-		return !op.isPresent();
+		return op;
 	}
 
 	@Override

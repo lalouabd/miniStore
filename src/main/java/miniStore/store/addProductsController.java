@@ -223,4 +223,10 @@ public class addProductsController implements ControllerClass {
 		
 		return selectedFile;
 	}
+
+	@Override
+	public void preloadData(Person person, Product product, boolean mine) {
+		// TODO Auto-generated method stub
+		
+	}
 }

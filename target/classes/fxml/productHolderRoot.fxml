@@ -3,10 +3,7 @@
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.layout.HBox?>
 
-
-<HBox fx:id="root" alignment="CENTER" prefHeight="99.0" prefWidth="300.0"
- spacing="10.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/11.0.1" 
- fx:controller="miniStore.store.ProductHolderRootController">
+<HBox id="cart" fx:id="root" alignment="CENTER" prefHeight="99.0" prefWidth="300.0" spacing="10.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="miniStore.store.ProductHolderRootController">
    <padding>
       <Insets left="5.0" right="5.0" />
    </padding>

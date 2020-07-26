@@ -9,7 +9,7 @@ public interface ControllerClass {
 	
 	void preloadData(Person person);
 	void preloadData(Person person , List<Product> products);
-	
+	 void preloadData(Person person, Product product, boolean mine);
 	
 
 }

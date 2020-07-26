@@ -8,12 +8,11 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Text?>
 
-
-<HBox alignment="CENTER" prefHeight="453.0" prefWidth="600.0" xmlns:fx="http://javafx.com/fxml/1" 
-xmlns="http://javafx.com/javafx/11.0.1" fx:controller="miniStore.store.loginController">
+<HBox alignment="CENTER" prefHeight="453.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="miniStore.store.loginController">
    <children>
       <VBox alignment="CENTER" prefHeight="413.0" prefWidth="289.0" spacing="20.0">
          <children>
+            <Text id="text-id" strokeType="OUTSIDE" strokeWidth="0.0" text="login Page" />
             <TextField fx:id="username" prefHeight="26.0" prefWidth="264.0" promptText="Email" />
             <PasswordField fx:id="password" promptText="password" />
             <HBox alignment="CENTER" prefHeight="39.0" prefWidth="328.0" spacing="100.0">

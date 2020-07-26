@@ -46,5 +46,10 @@ public class ProductHolderRootController implements ControllerClass {
 			}
 		});
 		}
+	@Override
+	public void preloadData(Person person, Product product, boolean mine) {
+		// TODO Auto-generated method stub
+		
+	}
 
 }

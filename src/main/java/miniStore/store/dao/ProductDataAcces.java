@@ -23,7 +23,8 @@ public class ProductDataAcces implements ProductDao{
 		return dbCon.queryForList(sql, Result->{
 			Product pro = null;
 			try {
-				pro = new Product(UUID.fromString(Result.getString("id")),
+				pro = new Product(
+						UUID.fromString(Result.getString("id")),
 						Result.getString("name"),
 						Result.getDouble("price"),
 						Result.getString("details"),
@@ -45,6 +46,7 @@ public class ProductDataAcces implements ProductDao{
 			Product pro = null;
 			try {
 				pro = new Product(
+						UUID.fromString(result.getString("id")),
 						result.getString("name"),
 						Double.parseDouble(result.getString("price")),
 						result.getString("details"),
@@ -110,13 +112,18 @@ public class ProductDataAcces implements ProductDao{
 
 	@Override
 	public List<Product> getProducts(String name) throws SQLException {
-		String sql="select * from produckts where name like ?";
+		String sql="select * from products where name like ? or 1=1";
 		
 		// TODO Auto-generated method stub
+		StringBuilder bl = new StringBuilder();
+		bl.append("'%");
+		bl.append(name);
+		bl.append("%'");
 		return dbCon.queryForList(sql, result->{
 			Product pro = null;
 			try {
 				pro = new Product(
+						UUID.fromString(result.getString("id")),
 						result.getString("name"),
 						Double.parseDouble(result.getString("price")),
 						result.getString("details"),
@@ -128,7 +135,7 @@ public class ProductDataAcces implements ProductDao{
 				e.printStackTrace();
 			}
 			return pro;
-		}, name+"%");
+		}, bl.toString());
 	}
 
 }

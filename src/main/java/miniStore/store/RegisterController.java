@@ -78,7 +78,34 @@ public class RegisterController {
 	    		}
 	    	});
 	    	signup.setOnAction(event->{
-	    		Person per = new Person(name.getText(),
+	    		
+	    		if (!email.getText().equals(emailcomfiramtion.getText()) || email.getText().isEmpty())
+	    		{
+	    			SceneChanger.showPopUP("emails don't match", "Error");
+	    			return;
+	    		}
+	    		if (!passconfirm.getText().equals(password.getText()) || password.getText().isEmpty())
+	    		{
+	    			SceneChanger.showPopUP("passwords don't match", "Error");
+	    			return;
+	    		}
+	    		
+	    		if (!email.getText().contains("@"))
+	    		{
+	    		SceneChanger.showPopUP("invalid email", "Error");
+    			return;
+	    		}
+	    		try {
+					if (new PersonService().getPersonbyEmail(email.getText()) != null)
+					{
+						SceneChanger.showPopUP(" email address is not available", "Error");
+		    			return;
+					}
+				} catch (SQLException e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				}
+	    			Person per = new Person(name.getText(),
 	    				email.getText(),
 	    				500,
 	    				password.getText(),

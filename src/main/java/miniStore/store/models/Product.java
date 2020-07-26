@@ -70,11 +70,8 @@ public  class Product {
 
 
 	public void setQuantity(int quantity) {
-		if (quantity > 0)
 		this.quantity = quantity;
-		else if (this.quantity <= 0)
-			this.quantity = 0;
-	}
+			}
 	public UUID getId() {
 		return id;
 	}

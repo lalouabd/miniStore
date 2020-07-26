@@ -14,9 +14,9 @@
       <VBox alignment="TOP_CENTER" prefHeight="500.0" prefWidth="232.0" spacing="10.0">
          <children>
             <Circle fx:id="profimage" fill="DODGERBLUE" radius="56.0" stroke="BLACK" strokeType="INSIDE" />
-            <Text fx:id="name" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" />
-            <Text fx:id="email" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" />
-            <Text fx:id="balance" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" />
+            <Text id="text-id" fx:id="name" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" />
+            <Text id="text-id" fx:id="email" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" />
+            <Text id="text-id" fx:id="balance" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" />
             <Button fx:id="myproducts" mnemonicParsing="false" text="my products" />
             <Button fx:id="withdraw" mnemonicParsing="false" prefHeight="26.0" prefWidth="103.0" text="withdraw" />
             <HBox alignment="CENTER" prefHeight="26.0" prefWidth="197.0" spacing="5.0">
@@ -40,7 +40,10 @@
       </VBox>
       <ScrollPane prefHeight="500.0" prefWidth="474.0">
          <content>
-            <VBox fx:id="infbox" alignment="CENTER" prefHeight="521.0" prefWidth="458.0" />
+            <VBox fx:id="infbox" alignment="TOP_CENTER" prefHeight="521.0" prefWidth="458.0" spacing="10.0">
+               <padding>
+                  <Insets top="50.0" />
+               </padding></VBox>
          </content>
       </ScrollPane>
    </children>

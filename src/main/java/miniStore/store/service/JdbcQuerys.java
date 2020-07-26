@@ -22,7 +22,8 @@ public class JdbcQuerys<T>  extends DataBaseConnections{
 		List<T> list = new ArrayList<>();
 		super.Connect();
 		statment =  con.prepareStatement(sql);
-		for(int i= 0; i< args.length;i++)
+	
+		for(int i = 0; i < args.length ;i++)
 			statment.setObject(i+1, args[i]);
 		
 		result = statment.executeQuery();
@@ -41,7 +42,7 @@ public class JdbcQuerys<T>  extends DataBaseConnections{
 	public Optional<T> queryForObject(String sql , Function<ResultSet , T> func , Object ...args)
 	throws SQLException{
 		super.Connect();
-	Optional <T> optional = Optional.empty();
+	Optional <T> optional  = Optional.ofNullable(null);
 		statment =  con.prepareStatement(sql);
 		for(int i= 0; i< args.length;i++)
 			statment.setObject(i+1, args[i]);

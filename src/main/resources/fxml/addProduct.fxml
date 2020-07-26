@@ -10,15 +10,13 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Text?>
 
-
-<ScrollPane prefHeight="519.0" prefWidth="757.0" xmlns="http://javafx.com/javafx/11.0.1" 
-xmlns:fx="http://javafx.com/fxml/1" fx:controller="miniStore.store.addProductsController">
+<ScrollPane prefHeight="519.0" prefWidth="757.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="miniStore.store.addProductsController">
    <content>
       <VBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="724.0" prefWidth="741.0" spacing="10.0">
          <children>
             <HBox alignment="CENTER" prefHeight="31.0" prefWidth="741.0" spacing="10.0">
                <children>
-                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Title :" />
+                  <Text id="text-id" strokeType="OUTSIDE" strokeWidth="0.0" text="Title :" />
                   <TextField fx:id="title" prefHeight="4.0" prefWidth="539.0" />
                   <Button fx:id="Cancel" mnemonicParsing="false" text="Cancel" />
                   <Button fx:id="save" mnemonicParsing="false" text="save" />
@@ -26,9 +24,9 @@ xmlns:fx="http://javafx.com/fxml/1" fx:controller="miniStore.store.addProductsCo
             </HBox>
             <HBox alignment="CENTER_LEFT" prefHeight="42.0" prefWidth="741.0" spacing="10.0">
                <children>
-                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Quantity :" />
+                  <Text id="text-id" strokeType="OUTSIDE" strokeWidth="0.0" text="Quantity :" />
                   <TextField fx:id="quantity" prefHeight="26.0" prefWidth="217.0" />
-                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Price" />
+                  <Text id="text-id" strokeType="OUTSIDE" strokeWidth="0.0" text="Price" />
                   <TextField fx:id="price" prefHeight="26.0" prefWidth="235.0" />
                   <Text strokeType="OUTSIDE" strokeWidth="0.0" text="\$" />
                </children>
@@ -38,7 +36,7 @@ xmlns:fx="http://javafx.com/fxml/1" fx:controller="miniStore.store.addProductsCo
             </HBox>
             <VBox prefHeight="229.0" prefWidth="741.0" spacing="10.0">
                <children>
-                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Discription" />
+                  <Text id="text-id" strokeType="OUTSIDE" strokeWidth="0.0" text="Description" />
                   <TextArea fx:id="disc" prefHeight="214.0" prefWidth="661.0" text=".....&#10;">
                      <VBox.margin>
                         <Insets left="20.0" />
@@ -55,7 +53,7 @@ xmlns:fx="http://javafx.com/fxml/1" fx:controller="miniStore.store.addProductsCo
                   <Button fx:id="delImage" mnemonicParsing="false" text="delete Image" />
                </children>
             </HBox>
-            <HBox alignment="CENTER" prefHeight="309.0" prefWidth="741.0" spacing="10.0">
+            <HBox id="cart" alignment="CENTER" prefHeight="309.0" prefWidth="741.0" spacing="10.0">
                <children>
                   <Button fx:id="pre" mnemonicParsing="false" text="&lt;--" />
                   <ImageView fx:id="slider" fitHeight="370.0" fitWidth="576.0" pickOnBounds="true" preserveRatio="true" />
